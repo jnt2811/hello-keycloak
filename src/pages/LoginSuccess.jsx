@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import { paths } from "./../constants";
 
 export const LoginSuccess = () => {
-  const navigate = useNavigate();
+  const history = useHistory();
 
   useEffect(() => {
     setTimeout(() => {
@@ -10,9 +11,9 @@ export const LoginSuccess = () => {
     }, 1000);
 
     setTimeout(() => {
-      navigate("/");
+      history.push(paths.main);
     }, 1100);
-  }, [navigate]);
+  }, [history]);
 
   return <div>Authenticated. Returning to homepage...</div>;
 };

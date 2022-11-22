@@ -1,6 +1,6 @@
-import { ReactKeycloakProvider, useKeycloak } from "@react-keycloak/web";
-import { createContext, useContext, useEffect, useState } from "react";
-import keycloak from "./Keycloak";
+import { ReactKeycloakProvider } from "@react-keycloak/web";
+import { createContext, useContext, useState } from "react";
+import keycloak from "./libs/Keycloak";
 
 const AuthContext = createContext();
 
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   return (
     <ReactKeycloakProvider
       authClient={keycloak}
-      //   LoadingComponent={<div>Authenticating...</div>}
+      LoadingComponent={<div>Authenticating...</div>}
       onEvent={(e) => {
         console.log("on event", e);
 
