@@ -14,8 +14,6 @@ export const KeycloakProvider = ({ children }) => {
 
       dispatch(updateTokens(tokens));
     }
-
-    // keycloak.clearToken();
   };
 
   return (
