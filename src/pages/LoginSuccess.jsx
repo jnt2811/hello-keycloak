@@ -1,19 +1,22 @@
-import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { paths } from "./../constants";
+import { useKeycloak } from "@react-keycloak/web";
+import { useEffect } from "react";
+
+const DEPLAY_CLOSE = 1000;
 
 export const LoginSuccess = () => {
-  const history = useHistory();
+  const { keycloak } = useKeycloak();
 
   useEffect(() => {
     setTimeout(() => {
       window.opener.postMessage("LOGIN SUCCESS");
-    }, 1000);
+    }, DEPLAY_CLOSE);
+  }, []);
 
-    setTimeout(() => {
-      history.push(paths.main);
-    }, 1100);
-  }, [history]);
-
-  return <div>Authenticated. Returning to homepage...</div>;
+  return (
+    <div>
+      {!!keycloak.authenticated
+        ? "You are authenticated! Returning to main page..."
+        : "You are not authenticated! Returning to login page..."}
+    </div>
+  );
 };

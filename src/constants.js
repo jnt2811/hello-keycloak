@@ -6,4 +6,5 @@ export const paths = {
   authenticated: "/authenticated",
   cis,
   dashboard: cis + "/dashboard",
+  software_route: "/software",
 };

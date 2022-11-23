@@ -15,7 +15,7 @@ export const HomeLogin = () => {
     const LEFT = window.top.outerWidth / 2 + window.top.screenX - WIDTH / 2;
 
     const loginUrl = keycloak.createLoginUrl({
-      redirectUri: window.location.origin + "/#" + paths.authenticated,
+      redirectUri: window.location.origin + paths.authenticated,
     });
 
     keyCloakWindow.current = window.open(
